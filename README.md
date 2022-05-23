@@ -1,6 +1,6 @@
 # Work Day Scheduler
 
-![Portfolio Screenshot](/assets/images/password-generator-screenshot.jpg?raw=true)
+![Portfolio Screenshot](/assets/images/work-screenshot.jpg?raw=true)
 
 ## Assignment
 Create a work scheduler that has color coded timeblocks and allows the user to save and retrieve to do items using local storage.
