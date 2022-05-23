@@ -32,6 +32,14 @@ var fiveButton = document.querySelector("#fiveBtn");
 // Making variables for text areas
 
 var nineTextAreaEl = document.querySelector("#nineTextArea");
+var tenTextAreaEl = document.querySelector("#tenTextArea");
+var elevenTextAreaEl = document.querySelector("#elevenTextArea");
+var twelveTextAreaEl = document.querySelector("#twelveTextArea");
+var oneTextAreaEl = document.querySelector("#oneTextArea");
+var twoTextAreaEl = document.querySelector("#twoTextArea");
+var threeTextAreaEl = document.querySelector("#threeTextArea");
+var fourTextAreaEl = document.querySelector("#fourTextArea");
+var fiveTextAreaEl = document.querySelector("#fiveTextArea");
 
 
 function timeOfDay() {
@@ -173,11 +181,10 @@ function timeOfDay() {
 }
 
 var toDo = {
-
     nineAM: "",
     tenAM: "",
     elevenAM: "",
-    twelveAM: "",
+    twelvePM: "",
     onePM: "",
     twoPM: "",
     threePM: "",
@@ -185,18 +192,98 @@ var toDo = {
     fivePM: "",
 };
 
-// Runs when a save button is clicked
+// Runs when 9AM save button is clicked
 function saveNineBlock(event) {
 
     event.preventDefault(); 
 
     toDo.nineAM = nineTextAreaEl.value;
     console.log(toDo);
-    
 }
 
-// Create listener for button to save the entered text into the toDo object
+// Runs when 10AM save button is clicked
+function saveTenBlock(event) {
+
+    event.preventDefault(); 
+
+    toDo.tenAM = tenTextAreaEl.value;
+    console.log(toDo);
+}
+
+// Runs when 11AM save button is clicked
+function saveElevenBlock(event) {
+
+    event.preventDefault(); 
+
+    toDo.elevenAM = elevenTextAreaEl.value;
+    console.log(toDo);
+}
+
+// Runs when 12PM save button is clicked
+function saveTwelveBlock(event) {
+
+    event.preventDefault(); 
+
+    toDo.twelvePM = twelveTextAreaEl.value;
+    console.log(toDo);
+}
+
+// Runs when 1PM save button is clicked
+function saveOneBlock(event) {
+
+    event.preventDefault(); 
+
+    toDo.onePM = oneTextAreaEl.value;
+    console.log(toDo);
+}
+
+// Runs when 2PM save button is clicked
+function saveTwoBlock(event) {
+
+    event.preventDefault(); 
+
+    toDo.twoPM = twoTextAreaEl.value;
+    console.log(toDo);
+}
+
+// Runs when 3PM save button is clicked
+function saveThreeBlock(event) {
+
+    event.preventDefault(); 
+
+    toDo.threePM = threeTextAreaEl.value;
+    console.log(toDo);
+}
+
+// Runs when 4PM save button is clicked
+function saveFourBlock(event) {
+
+    event.preventDefault(); 
+
+    toDo.fourPM = fourTextAreaEl.value;
+    console.log(toDo);
+}
+
+// Runs when 5PM save button is clicked
+function saveFiveBlock(event) {
+
+    event.preventDefault(); 
+
+    toDo.fivePM = fiveTextAreaEl.value;
+    console.log(toDo);
+}
+
+
+// Create listener for buttons to save the entered text into the toDo object
 nineButton.addEventListener("click", saveNineBlock);
+tenButton.addEventListener("click", saveTenBlock);
+elevenButton.addEventListener("click", saveElevenBlock);
+twelveButton.addEventListener("click", saveTwelveBlock);
+oneButton.addEventListener("click", saveOneBlock);
+twoButton.addEventListener("click", saveTwoBlock);
+threeButton.addEventListener("click", saveThreeBlock);
+fourButton.addEventListener("click", saveFourBlock);
+fiveButton.addEventListener("click", saveFiveBlock);
 
 // Color code time blocks based on hour of the day
 timeOfDay();
