@@ -17,10 +17,26 @@ var threeblockEl = document.querySelector("#threeBlock");
 var fourblockEl = document.querySelector("#fourBlock");
 var fiveblockEl = document.querySelector("#fiveBlock");
 
+// Making variables for save buttons
+
+var nineButton = document.querySelector("#nineBtn");
+var tenButton = document.querySelector("#tenBtn");
+var elevenButton = document.querySelector("#elevenBtn");
+var twelveButton = document.querySelector("#twelveBtn");
+var oneButton = document.querySelector("#oneBtn");
+var twoButton = document.querySelector("#twoBtn");
+var threeButton = document.querySelector("#threeBtn");
+var fourButton = document.querySelector("#fourBtn");
+var fiveButton = document.querySelector("#fiveBtn");
+
+// Making variables for text areas
+
+var nineTextAreaEl = document.querySelector("#nineTextArea");
+
+
 function timeOfDay() {
 
-    var currentTime = moment().format("h");
-    console.log(currentTime);
+    var currentTime = moment().format("H");
 
     if(currentTime == 9) {
 
@@ -70,7 +86,7 @@ function timeOfDay() {
         fourblockEl.setAttribute("style", "background-color:green")
         fiveblockEl.setAttribute("style", "background-color:green")
     }
-    else if(currentTime == 1) {
+    else if(currentTime == 13) {
 
         nineblockEl.setAttribute("style", "background-color:lightgray")
         tenblockEl.setAttribute("style", "background-color:lightgray")
@@ -82,7 +98,7 @@ function timeOfDay() {
         fourblockEl.setAttribute("style", "background-color:green")
         fiveblockEl.setAttribute("style", "background-color:green")
     }
-    else if(currentTime == 2) {
+    else if(currentTime == 14) {
 
         nineblockEl.setAttribute("style", "background-color:lightgray")
         tenblockEl.setAttribute("style", "background-color:lightgray")
@@ -94,7 +110,7 @@ function timeOfDay() {
         fourblockEl.setAttribute("style", "background-color:green")
         fiveblockEl.setAttribute("style", "background-color:green")
     }
-    else if(currentTime == 3) {
+    else if(currentTime == 15) {
 
         nineblockEl.setAttribute("style", "background-color:lightgray")
         tenblockEl.setAttribute("style", "background-color:lightgray")
@@ -106,7 +122,7 @@ function timeOfDay() {
         fourblockEl.setAttribute("style", "background-color:green")
         fiveblockEl.setAttribute("style", "background-color:green")
     }
-    else if(currentTime == 4) {
+    else if(currentTime == 16) {
 
         nineblockEl.setAttribute("style", "background-color:lightgray")
         tenblockEl.setAttribute("style", "background-color:lightgray")
@@ -118,7 +134,7 @@ function timeOfDay() {
         fourblockEl.setAttribute("style", "background-color:red")
         fiveblockEl.setAttribute("style", "background-color:green")
     }
-    else if(currentTime == 5) {
+    else if(currentTime == 17) {
 
         nineblockEl.setAttribute("style", "background-color:lightgray")
         tenblockEl.setAttribute("style", "background-color:lightgray")
@@ -142,7 +158,7 @@ function timeOfDay() {
         fourblockEl.setAttribute("style", "background-color:green")
         fiveblockEl.setAttribute("style", "background-color:green")
     }
-    else {
+    else if(currentTime > 17) {
 
         nineblockEl.setAttribute("style", "background-color:lightgray")
         tenblockEl.setAttribute("style", "background-color:lightgray")
@@ -156,4 +172,31 @@ function timeOfDay() {
     }
 }
 
+var toDo = {
+
+    nineAM: "",
+    tenAM: "",
+    elevenAM: "",
+    twelveAM: "",
+    onePM: "",
+    twoPM: "",
+    threePM: "",
+    fourPM: "",
+    fivePM: "",
+};
+
+// Runs when a save button is clicked
+function saveNineBlock(event) {
+
+    event.preventDefault(); 
+
+    toDo.nineAM = nineTextAreaEl.value;
+    console.log(toDo);
+    
+}
+
+// Create listener for button to save the entered text into the toDo object
+nineButton.addEventListener("click", saveNineBlock);
+
+// Color code time blocks based on hour of the day
 timeOfDay();
