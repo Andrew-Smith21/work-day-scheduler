@@ -1,4 +1,3 @@
-
 // Get current date formatted Weekday, Month Date
 var currentDate = moment().format("dddd, MMMM Do");
 
@@ -18,7 +17,6 @@ var fourblockEl = document.querySelector("#fourBlock");
 var fiveblockEl = document.querySelector("#fiveBlock");
 
 // Making variables for save buttons
-
 var nineButton = document.querySelector("#nineBtn");
 var tenButton = document.querySelector("#tenBtn");
 var elevenButton = document.querySelector("#elevenBtn");
@@ -30,7 +28,6 @@ var fourButton = document.querySelector("#fourBtn");
 var fiveButton = document.querySelector("#fiveBtn");
 
 // Making variables for text areas
-
 var nineTextAreaEl = document.querySelector("#nineTextArea");
 var tenTextAreaEl = document.querySelector("#tenTextArea");
 var elevenTextAreaEl = document.querySelector("#elevenTextArea");
@@ -41,9 +38,10 @@ var threeTextAreaEl = document.querySelector("#threeTextArea");
 var fourTextAreaEl = document.querySelector("#fourTextArea");
 var fiveTextAreaEl = document.querySelector("#fiveTextArea");
 
-
+// Color coding time blocks based on time of day
 function timeOfDay() {
 
+    // Getting the current hour of day from 0-23
     var currentTime = moment().format("H");
 
     if(currentTime == 9) {
@@ -180,6 +178,7 @@ function timeOfDay() {
     }
 }
 
+// Creating empty toDo object that will be changed later in the code
 var toDo = {
     nineAM: "",
     tenAM: "",
@@ -198,7 +197,9 @@ function saveNineBlock(event) {
     event.preventDefault(); 
 
     toDo.nineAM = nineTextAreaEl.value;
-    console.log(toDo);
+
+    // save toDo object to localStorage
+    localStorage.setItem("toDo", JSON.stringify(toDo));
 }
 
 // Runs when 10AM save button is clicked
@@ -207,7 +208,9 @@ function saveTenBlock(event) {
     event.preventDefault(); 
 
     toDo.tenAM = tenTextAreaEl.value;
-    console.log(toDo);
+
+    // save toDo object to localStorage
+    localStorage.setItem("toDo", JSON.stringify(toDo));
 }
 
 // Runs when 11AM save button is clicked
@@ -216,7 +219,9 @@ function saveElevenBlock(event) {
     event.preventDefault(); 
 
     toDo.elevenAM = elevenTextAreaEl.value;
-    console.log(toDo);
+
+    // save toDo object to localStorage
+    localStorage.setItem("toDo", JSON.stringify(toDo));
 }
 
 // Runs when 12PM save button is clicked
@@ -225,7 +230,9 @@ function saveTwelveBlock(event) {
     event.preventDefault(); 
 
     toDo.twelvePM = twelveTextAreaEl.value;
-    console.log(toDo);
+
+    // save toDo object to localStorage
+    localStorage.setItem("toDo", JSON.stringify(toDo));
 }
 
 // Runs when 1PM save button is clicked
@@ -234,7 +241,9 @@ function saveOneBlock(event) {
     event.preventDefault(); 
 
     toDo.onePM = oneTextAreaEl.value;
-    console.log(toDo);
+
+    // save toDo object to localStorage
+    localStorage.setItem("toDo", JSON.stringify(toDo));
 }
 
 // Runs when 2PM save button is clicked
@@ -243,7 +252,9 @@ function saveTwoBlock(event) {
     event.preventDefault(); 
 
     toDo.twoPM = twoTextAreaEl.value;
-    console.log(toDo);
+
+    // save toDo object to localStorage
+    localStorage.setItem("toDo", JSON.stringify(toDo));
 }
 
 // Runs when 3PM save button is clicked
@@ -252,7 +263,9 @@ function saveThreeBlock(event) {
     event.preventDefault(); 
 
     toDo.threePM = threeTextAreaEl.value;
-    console.log(toDo);
+
+    // save toDo object to localStorage
+    localStorage.setItem("toDo", JSON.stringify(toDo));
 }
 
 // Runs when 4PM save button is clicked
@@ -261,7 +274,9 @@ function saveFourBlock(event) {
     event.preventDefault(); 
 
     toDo.fourPM = fourTextAreaEl.value;
-    console.log(toDo);
+
+    // save toDo object to localStorage
+    localStorage.setItem("toDo", JSON.stringify(toDo));
 }
 
 // Runs when 5PM save button is clicked
@@ -270,7 +285,26 @@ function saveFiveBlock(event) {
     event.preventDefault(); 
 
     toDo.fivePM = fiveTextAreaEl.value;
-    console.log(toDo);
+
+    // save toDo object to localStorage
+    localStorage.setItem("toDo", JSON.stringify(toDo));
+}
+
+// Load items on the schedule when the page loads
+function loadSchedule(event) {
+
+    toDo = localStorage.getItem("toDo");
+    toDo = JSON.parse(toDo);
+
+    nineTextAreaEl.value = toDo.nineAM;
+    tenTextAreaEl.value = toDo.tenAM;
+    elevenTextAreaEl.value = toDo.elevenAM;
+    twelveTextAreaEl.value = toDo.twelvePM;
+    oneTextAreaEl.value = toDo.onePM;
+    twoTextAreaEl.value = toDo.twoPM;
+    threeTextAreaEl.value = toDo.threePM;
+    fourTextAreaEl.value = toDo.fourPM;
+    fiveTextAreaEl.value = toDo.fivePM;
 }
 
 
@@ -287,3 +321,4 @@ fiveButton.addEventListener("click", saveFiveBlock);
 
 // Color code time blocks based on hour of the day
 timeOfDay();
+loadSchedule();
