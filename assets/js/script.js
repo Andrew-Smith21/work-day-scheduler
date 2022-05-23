@@ -293,6 +293,11 @@ function saveFiveBlock(event) {
 // Load items on the schedule when the page loads
 function loadSchedule(event) {
 
+    // if there are no tasks, return out of the function
+    if (!toDo) {
+        return false;
+    }
+
     toDo = localStorage.getItem("toDo");
     toDo = JSON.parse(toDo);
 
